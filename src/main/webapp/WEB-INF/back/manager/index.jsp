@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>管理员后台管理</title>
+<title>考试云平台</title>
+<link rel="icon" href="images/title_logo.ico" type="image/x-icon"/> 
 <link rel="stylesheet" type="text/css" href="../../myeasyui/css/easyui.css" />
 <link rel="stylesheet" type="text/css" href="../../myeasyui/css/wu.css" />
 <link rel="stylesheet" type="text/css" href="../../myeasyui/css/icon.css" />
@@ -40,11 +41,11 @@
 	<!-- begin of header -->
 	<div class="wu-header" data-options="region:'north',border:false,split:true">
     	<div class="wu-header-left">
-        	<h1>窝 窝 团 管 理 员 后 台 管 理 界 面</h1>
+        	<h1>学生页面</h1>
         </div>
         <div class="wu-header-right">
         	<p><strong class="easyui-tooltip" id="LoginUserName" title="2条未读消息"></strong>，欢迎您！</p>
-            <p><a href="../../wwt/index.jsp">网站首页</a>|<a href="javascript:updatepwd()">修改密码</a>|<a href="http://about.58.com/">帮助中心</a>|<a href="exit.jsp">安全退出</a></p>
+            <p><a href="javascript:updatepwd()">修改密码</a>|<a href="http://about.58.com/">帮助中心</a>|<a href="exit.jsp">安全退出</a></p>
         </div>
     </div>
     <!-- end of header -->
@@ -55,15 +56,6 @@
     			<ul class="easyui-tree wu-side-tree">
                     <li iconCls="icon-user-business-boss"><a href="javascript:void(0)" data-icon="icon-user-business-boss" data-link="admin.html" iframe="0">管理员管理</a></li>
                     <li iconCls="icon-user-star"><a href="javascript:void(0)" data-icon="icon-user-star" data-link="cusInfo.html" iframe="0">会员管理</a></li>
-                </ul>
-            </div>
-            
-            <div title="店铺管理" data-options="iconCls:'icon-wrench'" style="padding:5px;">  	
-    			<ul class="easyui-tree wu-side-tree">
-                    <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="storetype.html" iframe="0">店铺类型管理</a></li>
-                    <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="store.html" iframe="0">店铺管理</a></li>
-                    <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="storegoods.html" iframe="0">商品管理</a></li>
-                    <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="storeecharts.jsp" iframe="0">店铺营业额统计</a></li>
                 </ul>
             </div>
         </div>
