@@ -34,5 +34,11 @@ function userLogin() {
         return;
     }
     
-    
+    $.post("../adminLogin",{aid:username,pwd:password},function(data){
+    	if(data!=null && data!=""){
+    		location.href="../back/loginOk";
+    	}else{
+			alert("账号或密码错误...");
+		}
+    },"json");
 }

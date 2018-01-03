@@ -7,12 +7,12 @@
 <meta charset="utf-8" />
 <title>考试云平台</title>
 <link rel="icon" href="images/title_logo.ico" type="image/x-icon"/> 
-<link rel="stylesheet" type="text/css" href="../../myeasyui/css/easyui.css" />
-<link rel="stylesheet" type="text/css" href="../../myeasyui/css/wu.css" />
-<link rel="stylesheet" type="text/css" href="../../myeasyui/css/icon.css" />
-<script type="text/javascript" src="../../myeasyui/js/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="../../myeasyui/js/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="../../myeasyui/js/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="../myeasyui/css/easyui.css" />
+<link rel="stylesheet" type="text/css" href="../myeasyui/css/wu.css" />
+<link rel="stylesheet" type="text/css" href="../myeasyui/css/icon.css" />
+<script type="text/javascript" src="../myeasyui/js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="../myeasyui/js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../myeasyui/js/easyui-lang-zh_CN.js"></script>
 <style>
 	#updateform p{
 		margin-left:70px;
@@ -52,12 +52,7 @@
     <!-- begin of sidebar -->
 	<div class="wu-sidebar" data-options="region:'west',split:true,border:true,title:'导航菜单'"> 
     	<div class="easyui-accordion" data-options="border:false,fit:true"> 
-        	<div title="用户信息管理" data-options="iconCls:'icon-users'" style="padding:5px;">  	
-    			<ul class="easyui-tree wu-side-tree">
-                    <li iconCls="icon-user-business-boss"><a href="javascript:void(0)" data-icon="icon-user-business-boss" data-link="admin.html" iframe="0">管理员管理</a></li>
-                    <li iconCls="icon-user-star"><a href="javascript:void(0)" data-icon="icon-user-star" data-link="cusInfo.html" iframe="0">会员管理</a></li>
-                </ul>
-            </div>
+    		<ul class="easyui-tree wu-side-tree" id="menu-tree" data-options="url:'menuInfo'"></ul>
         </div>
     </div>	
     <!-- end of sidebar -->    
@@ -84,6 +79,29 @@
 			});	
 			var loginUserName="${currentLoginAdmin.aname}";
 			$("#LoginUserName").text(loginUserName);
+			
+			$("#menu-tree").tree({
+				onClick : function(node) {
+					var href = "ss.html";
+					var txt = node.text;
+					var tabs = $("#wu-tabs");
+
+					if (node.attributes != undefined) {
+						href = node.attributes.url;
+						if (tabs.tabs("exists", txt)) {
+							tabs.tabs("select", txt);
+							return;
+						} else {
+							tabs.tabs("add", {
+								title : txt,
+								href : href,
+								fit : true,
+								closable:true, 
+							})
+						}
+					}
+				}
+			})
 		});
 
 		/**

@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 /**
  * 操作员表
- * 
  * @author 神兽
  */
 public class Admin implements Serializable {
@@ -19,12 +18,13 @@ public class Admin implements Serializable {
 	private Integer status;
 	private String sparea;
 	private String spareb;
+	private String pname;
 
 	@Override
 	public String toString() {
 		return "Admin [aid=" + aid + ", pid=" + pid + ", adid=" + adid + ", aname=" + aname + ", pwd=" + pwd
 				+ ", photo=" + photo + ", email=" + email + ", status=" + status + ", sparea=" + sparea + ", spareb="
-				+ spareb + "]";
+				+ spareb + ", pname=" + pname + "]";
 	}
 
 	public Integer getAid() {
@@ -107,8 +107,16 @@ public class Admin implements Serializable {
 		this.spareb = spareb;
 	}
 
+	public String getPname() {
+		return pname;
+	}
+
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+
 	public Admin(Integer aid, Integer pid, Integer adid, String aname, String pwd, String photo, String email,
-			Integer status, String sparea, String spareb) {
+			Integer status, String sparea, String spareb, String pname) {
 		super();
 		this.aid = aid;
 		this.pid = pid;
@@ -120,6 +128,7 @@ public class Admin implements Serializable {
 		this.status = status;
 		this.sparea = sparea;
 		this.spareb = spareb;
+		this.pname = pname;
 	}
 
 	public Admin() {
@@ -136,6 +145,7 @@ public class Admin implements Serializable {
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((photo == null) ? 0 : photo.hashCode());
 		result = prime * result + ((pid == null) ? 0 : pid.hashCode());
+		result = prime * result + ((pname == null) ? 0 : pname.hashCode());
 		result = prime * result + ((pwd == null) ? 0 : pwd.hashCode());
 		result = prime * result + ((sparea == null) ? 0 : sparea.hashCode());
 		result = prime * result + ((spareb == null) ? 0 : spareb.hashCode());
@@ -181,6 +191,11 @@ public class Admin implements Serializable {
 			if (other.pid != null)
 				return false;
 		} else if (!pid.equals(other.pid))
+			return false;
+		if (pname == null) {
+			if (other.pname != null)
+				return false;
+		} else if (!pname.equals(other.pname))
 			return false;
 		if (pwd == null) {
 			if (other.pwd != null)

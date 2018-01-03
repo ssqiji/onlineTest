@@ -12,7 +12,7 @@
         
     <import resource="classpath:com/ss/onlineTest/config/spring-bean.xml"/>
 
-    <context:component-scan base-package="com.ss.blog">
+    <context:component-scan base-package="com.ss.onlineTest">
     	<!-- 指定要spring ioc扫描的 -->
     	<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>

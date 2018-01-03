@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 /**
  * 二级菜单类
- * 
  * @author 神兽
  */
 public class MenuItem implements Serializable {
@@ -16,10 +15,12 @@ public class MenuItem implements Serializable {
 	private String sparea;
 	private String spareb;
 
+	private Attributes attributes;
+
 	@Override
 	public String toString() {
 		return "MenuItem [id=" + id + ", mid=" + mid + ", text=" + text + ", urls=" + urls + ", sparea=" + sparea
-				+ ", spareb=" + spareb + "]";
+				+ ", spareb=" + spareb + ", attributes=" + attributes + "]";
 	}
 
 	public Integer getId() {
@@ -70,7 +71,16 @@ public class MenuItem implements Serializable {
 		this.spareb = spareb;
 	}
 
-	public MenuItem(Integer id, Integer mid, String text, String urls, String sparea, String spareb) {
+	public Attributes getAttributes() {
+		return attributes;
+	}
+
+	public void setAttributes(Attributes attributes) {
+		this.attributes = attributes;
+	}
+
+	public MenuItem(Integer id, Integer mid, String text, String urls, String sparea, String spareb,
+			com.ss.onlineTest.bean.Attributes attributes) {
 		super();
 		this.id = id;
 		this.mid = mid;
@@ -78,6 +88,7 @@ public class MenuItem implements Serializable {
 		this.urls = urls;
 		this.sparea = sparea;
 		this.spareb = spareb;
+		this.attributes = attributes;
 	}
 
 	public MenuItem() {
@@ -88,6 +99,7 @@ public class MenuItem implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((attributes == null) ? 0 : attributes.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((mid == null) ? 0 : mid.hashCode());
 		result = prime * result + ((sparea == null) ? 0 : sparea.hashCode());
@@ -106,6 +118,11 @@ public class MenuItem implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		MenuItem other = (MenuItem) obj;
+		if (attributes == null) {
+			if (other.attributes != null)
+				return false;
+		} else if (!attributes.equals(other.attributes))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
